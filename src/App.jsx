@@ -39,14 +39,15 @@ import './assets/layout/layout.scss'
 import './App.scss'
 import { ConfigProvider } from './context'
 import { LayoutAdmin, Layout } from '@/components'
-import { Login } from './pages'
+import { Login, Register, NotFound } from '@/pages'
 
 const App = () => {
   return (
     <ConfigProvider>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Login />} />
+          <Route path='login' element={<Login />} />
+          <Route path='register' element={<Register />} />
           <Route path='admin' element={<LayoutAdmin />}>
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='formlayout' element={<FormLayoutDemo />} />
@@ -77,6 +78,7 @@ const App = () => {
             <Route path='empty' element={<EmptyPage />} />
             <Route path='documentation' element={<Documentation />} />
           </Route>
+          <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
     </ConfigProvider>
